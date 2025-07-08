@@ -1,5 +1,7 @@
+import Workout from "@/components/Workout";
 import Ionicons from "@expo/vector-icons/build/Ionicons";
 import {
+  BottomSheetBackdrop,
   BottomSheetModal,
   BottomSheetModalProvider,
   BottomSheetView,
@@ -66,12 +68,28 @@ export default function Index() {
             </View>
             <BottomSheetModal
               ref={bottomSheetModalRef}
-              snapPoints={["50%", "100%"]}
+              snapPoints={["15%", "100%"]}
               index={1}
               enableDynamicSizing={false}
+              enableDismissOnClose={true}
+              enablePanDownToClose={false}
+              backgroundStyle={{
+                backgroundColor: "#FBF8FF",
+                borderRadius: 0,
+                elevation: 12,
+              }}
+
+              backdropComponent={(props) => (
+                <BottomSheetBackdrop
+                  {...props}
+                  disappearsOnIndex={0}
+                  appearsOnIndex={1}
+                  pressBehavior="collapse"
+                />
+              )}
             >
               <BottomSheetView style={styles.contentContainer}>
-                <Text>Awesome 🎉</Text>
+                <Workout></Workout>
               </BottomSheetView>
             </BottomSheetModal>
           </BottomSheetModalProvider>
