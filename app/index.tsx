@@ -1,3 +1,4 @@
+import BottomSheetCustomHandle from "@/components/BottomSheetHandle";
 import Workout from "@/components/Workout";
 import Ionicons from "@expo/vector-icons/build/Ionicons";
 import {
@@ -9,7 +10,6 @@ import {
 import { useCallback, useRef } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -18,86 +18,81 @@ export default function Index() {
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
   }, []);
+
   return (
     <>
-      <SafeAreaView>
-        <GestureHandlerRootView style={{ width: "100%", height: "100%" }}>
-          <BottomSheetModalProvider>
+      <GestureHandlerRootView style={{ width: "100%", height: "100%" }}>
+        <BottomSheetModalProvider>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "flex-end",
+              alignItems: "center",
+              padding: 24,
+            }}
+          >
             <View
-              style={{
-                flex: 1,
-                justifyContent: "flex-end",
-                alignItems: "center",
-                padding: 24,
-              }}
+              style={{ width: "100%", overflow: "hidden", borderRadius: 12 }}
             >
-              <View
-                style={{ width: "100%", overflow: "hidden", borderRadius: 12 }}
+              <Pressable
+                android_ripple={{
+                  color: "#BABCE7",
+                }}
+                style={{
+                  alignItems: "center",
+                  backgroundColor: "#565992",
+                  padding: 16,
+                }}
+                onPress={handlePresentModalPress}
               >
-                <Pressable
-                  android_ripple={{
-                    color: "#BABCE7",
-                  }}
+                <View
                   style={{
+                    flexDirection: "row",
                     alignItems: "center",
-                    backgroundColor: "#565992",
-                    padding: 16,
+                    gap: 4,
                   }}
-                  onPress={handlePresentModalPress}
                 >
-                  <View
+                  <Text
                     style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      gap: 4,
+                      color: "#E0E0FF",
+                      fontSize: 14,
+                      fontWeight: "bold",
                     }}
                   >
-                    <Text
-                      style={{
-                        color: "#E0E0FF",
-                        fontSize: 14,
-                        fontWeight: "bold",
-                      }}
-                    >
-                      START NEW WORKOUT
-                    </Text>
-                    <Ionicons name="add" size={24} color="#E0E0FF" />
-                  </View>
-                </Pressable>
-              </View>
+                    START NEW WORKOUT
+                  </Text>
+                  <Ionicons name="add" size={24} color="#E0E0FF" />
+                </View>
+              </Pressable>
             </View>
-            <BottomSheetModal
-              ref={bottomSheetModalRef}
-              snapPoints={[96, "100%"]}
-              index={1}
-              enableDynamicSizing={false}
-              enableDismissOnClose={true}
-              enablePanDownToClose={false}
-              backgroundStyle={{
-                backgroundColor: "#FBF8FF",
-                borderRadius: 0,
-                elevation: 36,
-              }}
-              backdropComponent={(props) => (
-                <BottomSheetBackdrop
-                  {...props}
-                  disappearsOnIndex={0}
-                  appearsOnIndex={1}
-                  pressBehavior="collapse"
-                />
-              )}
-              handleStyle={{
-                backgroundColor: "#E0E0FF",
-                height: 24
-              }}
-            >
-              <BottomSheetView style={styles.contentContainer}>
-                <Workout></Workout>
-              </BottomSheetView>
-            </BottomSheetModal>
-          </BottomSheetModalProvider>
-        </GestureHandlerRootView>
-      </SafeAreaView>
+          </View>
+          <BottomSheetModal
+            ref={bottomSheetModalRef}
+            snapPoints={[96, "100%"]}
+            index={1}
+            enableDynamicSizing={false}
+            enableDismissOnClose={true}
+            enablePanDownToClose={false}
+            backgroundStyle={{
+              backgroundColor: "#FBF8FF",
+              elevation: 12,
+            }}
+            backdropComponent={(props) => (
+              <BottomSheetBackdrop
+                {...props}
+                disappearsOnIndex={0}
+                appearsOnIndex={1}
+                pressBehavior="collapse"
+              />
+            )}
+            handleComponent={(props) => <BottomSheetCustomHandle {...props} />}
+          >
+            <BottomSheetView style={styles.contentContainer}>
+              <Workout></Workout>
+            </BottomSheetView>
+          </BottomSheetModal>
+        </BottomSheetModalProvider>
+      </GestureHandlerRootView>
     </>
   );
 }

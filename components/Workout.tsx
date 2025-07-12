@@ -1,24 +1,45 @@
 import Ionicons from "@expo/vector-icons/build/Ionicons";
-import { useBottomSheetModal } from "@gorhom/bottom-sheet";
+import { useBottomSheet, useBottomSheetModal } from "@gorhom/bottom-sheet";
 import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import Animated, {
+  interpolate,
+  useAnimatedStyle,
+} from "react-native-reanimated";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const Workout = () => {
   const { dismiss, dismissAll } = useBottomSheetModal();
   const [workoutName, setWorkoutName] = useState("");
+  const insets = useSafeAreaInsets();
+  const bottomSheetContext = useBottomSheet();
+
+  const animatedStyle = useAnimatedStyle(() => {
+    const paddingBottom = interpolate(
+      bottomSheetContext.animatedIndex.value,
+      [1, 0],
+      [0, insets.bottom + 8]
+    );
+    return {
+      paddingBottom,
+    };
+  });
   return (
     <View style={{ width: "100%" }}>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          width: "100%",
-          backgroundColor: "#E0E0FF",
-          paddingHorizontal: 24,
-          height: 72,
-        }}
+      <Animated.View
+        style={[
+          {
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+            backgroundColor: "#E0E0FF",
+            paddingHorizontal: 24,
+            height: 72,
+          },
+          animatedStyle,
+        ]}
       >
         <View style={{ overflow: "hidden", borderRadius: 12 }}>
           <Pressable
@@ -79,7 +100,7 @@ const Workout = () => {
             <Ionicons name="close" size={24} color="#565992" />
           </Pressable>
         </View>
-      </View>
+      </Animated.View>
     </View>
   );
 };
