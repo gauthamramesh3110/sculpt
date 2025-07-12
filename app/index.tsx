@@ -68,7 +68,7 @@ export default function Index() {
             </View>
             <BottomSheetModal
               ref={bottomSheetModalRef}
-              snapPoints={["15%", "100%"]}
+              snapPoints={[96, "100%"]}
               index={1}
               enableDynamicSizing={false}
               enableDismissOnClose={true}
@@ -76,9 +76,8 @@ export default function Index() {
               backgroundStyle={{
                 backgroundColor: "#FBF8FF",
                 borderRadius: 0,
-                elevation: 12,
+                elevation: 36,
               }}
-
               backdropComponent={(props) => (
                 <BottomSheetBackdrop
                   {...props}
@@ -87,6 +86,10 @@ export default function Index() {
                   pressBehavior="collapse"
                 />
               )}
+              handleStyle={{
+                backgroundColor: "#E0E0FF",
+                height: 24
+              }}
             >
               <BottomSheetView style={styles.contentContainer}>
                 <Workout></Workout>
