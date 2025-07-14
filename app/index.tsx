@@ -1,5 +1,4 @@
 import BottomSheetCustomHandle from "@/components/BottomSheetHandle";
-import Workout from "@/components/Workout";
 import Ionicons from "@expo/vector-icons/build/Ionicons";
 import {
   BottomSheetBackdrop,
@@ -68,7 +67,7 @@ export default function Index() {
           </View>
           <BottomSheetModal
             ref={bottomSheetModalRef}
-            snapPoints={[96, "100%"]}
+            snapPoints={[104, "100%"]}
             index={1}
             enableDynamicSizing={false}
             enableDismissOnClose={true}
@@ -88,7 +87,7 @@ export default function Index() {
             handleComponent={(props) => <BottomSheetCustomHandle {...props} />}
           >
             <BottomSheetView style={styles.contentContainer}>
-              <Workout></Workout>
+              <Text>Hello</Text>
             </BottomSheetView>
           </BottomSheetModal>
         </BottomSheetModalProvider>

@@ -9,7 +9,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const Workout = () => {
+const WorkoutHeader = () => {
   const { dismiss, dismissAll } = useBottomSheetModal();
   const [workoutName, setWorkoutName] = useState("");
   const insets = useSafeAreaInsets();
@@ -105,6 +105,6 @@ const Workout = () => {
   );
 };
 
-export default Workout;
+export default WorkoutHeader;
 
 const styles = StyleSheet.create({});

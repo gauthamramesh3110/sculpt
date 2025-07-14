@@ -1,11 +1,12 @@
 import { BottomSheetHandle } from "@gorhom/bottom-sheet";
 import React from "react";
 import Animated, {
-    interpolate,
-    SharedValue,
-    useAnimatedStyle,
+  interpolate,
+  SharedValue,
+  useAnimatedStyle,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import WorkoutHeader from "./WorkoutHeader";
 
 const BottomSheetCustomHandle = (props: {
   animatedIndex: SharedValue<number>;
@@ -35,6 +36,7 @@ const BottomSheetCustomHandle = (props: {
         animatedIndex={props.animatedIndex}
         animatedPosition={props.animatedPosition}
       />
+      <WorkoutHeader></WorkoutHeader>
     </Animated.View>
   );
 };
