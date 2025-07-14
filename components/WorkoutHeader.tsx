@@ -1,7 +1,7 @@
 import Ionicons from "@expo/vector-icons/build/Ionicons";
 import { useBottomSheet, useBottomSheetModal } from "@gorhom/bottom-sheet";
 import React, { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Animated, {
   interpolate,
@@ -10,7 +10,7 @@ import Animated, {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const WorkoutHeader = () => {
-  const { dismiss, dismissAll } = useBottomSheetModal();
+  const { dismiss } = useBottomSheetModal();
   const [workoutName, setWorkoutName] = useState("");
   const insets = useSafeAreaInsets();
   const bottomSheetContext = useBottomSheet();
@@ -106,5 +106,3 @@ const WorkoutHeader = () => {
 };
 
 export default WorkoutHeader;
-
-const styles = StyleSheet.create({});

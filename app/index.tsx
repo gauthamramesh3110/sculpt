@@ -1,23 +1,31 @@
 import BottomSheetCustomHandle from "@/components/BottomSheetHandle";
+import Workout from "@/components/Workout";
+import { WorkoutDetails } from "@/models/WorkoutDetails";
 import Ionicons from "@expo/vector-icons/build/Ionicons";
 import {
   BottomSheetBackdrop,
   BottomSheetModal,
   BottomSheetModalProvider,
-  BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
-import { useCallback, useRef } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useRef, useState } from "react";
+import { Pressable, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function Index() {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
-  // callbacks
-  const handlePresentModalPress = useCallback(() => {
-    bottomSheetModalRef.current?.present();
-  }, []);
+  const [activeWorkout, setActiveWorkout] = useState<WorkoutDetails | null>(
+    null
+  );
 
+  const startNewWorkout = () => {
+    setActiveWorkout({
+      id: Math.random().toString(36).substring(7),
+      name: "New Workout",
+      exercises: [],
+    });
+    bottomSheetModalRef.current?.present();
+  };
   return (
     <>
       <GestureHandlerRootView style={{ width: "100%", height: "100%" }}>
@@ -42,7 +50,7 @@ export default function Index() {
                   backgroundColor: "#565992",
                   padding: 16,
                 }}
-                onPress={handlePresentModalPress}
+                onPress={startNewWorkout}
               >
                 <View
                   style={{
@@ -85,63 +93,14 @@ export default function Index() {
             )}
             handleComponent={(props) => <BottomSheetCustomHandle {...props} />}
           >
-            <BottomSheetScrollView
-              style={styles.contentContainer}
-              contentContainerStyle={{
-                alignItems: "center",
-                paddingTop: 12,
-                paddingHorizontal: 12
-              }}
-            >
-              <View
-                style={{
-                  borderRadius: 12,
-                  overflow: "hidden",
-                }}
-              >
-                <Pressable
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: 48,
-                    paddingHorizontal: 12,
-                    borderRadius: 12,
-                  }}
-                  android_ripple={{
-                    color: "#BABCE7",
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: "#565992",
-                      fontWeight: "bold",
-                      fontSize: 16,
-                      marginRight: 6,
-                    }}
-                  >
-                    ADD EXERCISE
-                  </Text>
-                  <Ionicons name="add" size={24} color="#565992" />
-                </Pressable>
-              </View>
-            </BottomSheetScrollView>
+            {activeWorkout != null ? (
+              <Workout workoutId={activeWorkout.id} />
+            ) : (
+              <Text>Workout not found</Text>
+            )}
           </BottomSheetModal>
         </BottomSheetModalProvider>
       </GestureHandlerRootView>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    flex: 1,
-    padding: 24,
-    justifyContent: "center",
-    backgroundColor: "grey",
-  },
-  contentContainer: {
-    backgroundColor: "#FBF8FF",
-  },
-});
