@@ -4,7 +4,7 @@ import {
   BottomSheetBackdrop,
   BottomSheetModal,
   BottomSheetModalProvider,
-  BottomSheetView,
+  BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import { useCallback, useRef } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
@@ -73,7 +73,6 @@ export default function Index() {
             enableDismissOnClose={true}
             enablePanDownToClose={false}
             backgroundStyle={{
-              backgroundColor: "#FBF8FF",
               elevation: 12,
             }}
             backdropComponent={(props) => (
@@ -86,9 +85,47 @@ export default function Index() {
             )}
             handleComponent={(props) => <BottomSheetCustomHandle {...props} />}
           >
-            <BottomSheetView style={styles.contentContainer}>
-              <Text>Hello</Text>
-            </BottomSheetView>
+            <BottomSheetScrollView
+              style={styles.contentContainer}
+              contentContainerStyle={{
+                alignItems: "center",
+                paddingTop: 12,
+                paddingHorizontal: 12
+              }}
+            >
+              <View
+                style={{
+                  borderRadius: 12,
+                  overflow: "hidden",
+                }}
+              >
+                <Pressable
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: 48,
+                    paddingHorizontal: 12,
+                    borderRadius: 12,
+                  }}
+                  android_ripple={{
+                    color: "#BABCE7",
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#565992",
+                      fontWeight: "bold",
+                      fontSize: 16,
+                      marginRight: 6,
+                    }}
+                  >
+                    ADD EXERCISE
+                  </Text>
+                  <Ionicons name="add" size={24} color="#565992" />
+                </Pressable>
+              </View>
+            </BottomSheetScrollView>
           </BottomSheetModal>
         </BottomSheetModalProvider>
       </GestureHandlerRootView>
@@ -105,7 +142,6 @@ const styles = StyleSheet.create({
     backgroundColor: "grey",
   },
   contentContainer: {
-    flex: 1,
-    alignItems: "center",
+    backgroundColor: "#FBF8FF",
   },
 });
