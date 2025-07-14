@@ -24,7 +24,7 @@ const BottomSheetCustomHandle = (props: {
     const topRadius = interpolate(props.animatedIndex.value, [0, 1], [12, 0]);
     return {
       paddingTop,
-      backgroundColor: "#E0E0FF",
+      backgroundColor: Colors.secondaryLight,
       borderTopLeftRadius: topRadius,
       borderTopRightRadius: topRadius,
     };

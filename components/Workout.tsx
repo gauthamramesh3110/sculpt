@@ -1,5 +1,5 @@
 import exerciseList from "@/assets/json/exerciseList.json";
-import colors from "@/constants/colors";
+import colors from "@/constants/Colors";
 import { WorkoutExerciseDetails } from "@/models/WorkoutDetails";
 import { Ionicons } from "@expo/vector-icons";
 import {
@@ -227,12 +227,12 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
                 borderRadius: 12,
               }}
               android_ripple={{
-                color: "#BABCE7",
+                color: Colors.secondaryDark,
               }}
             >
               <Text
                 style={{
-                  color: "#565992",
+                  color: colors.primary,
                   fontWeight: "bold",
                   fontSize: 16,
                   marginRight: 6,
@@ -240,7 +240,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
               >
                 ADD EXERCISE
               </Text>
-              <Ionicons name="add" size={24} color="#565992" />
+              <Ionicons name="add" size={24} color={colors.primary} />
             </Pressable>
           </View>
         )}
@@ -253,6 +253,6 @@ export default Workout;
 const styles = StyleSheet.create({
   container: {
     height: "100%",
-    backgroundColor: "#FBF8FF",
+    backgroundColor: {Colors.background,
   },
 });

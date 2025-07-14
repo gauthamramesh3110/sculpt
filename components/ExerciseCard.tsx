@@ -1,3 +1,4 @@
+import Colors from "@/constants/Colors";
 import { WorkoutExerciseDetails } from "@/models/WorkoutDetails";
 import Ionicons from "@expo/vector-icons/build/Ionicons";
 import React from "react";
@@ -18,7 +19,7 @@ const ExerciseCard = ({
       <View
         style={{
           width: "100%",
-          backgroundColor: isActive ? "#BABCE7" : "#E0E0FF",
+          backgroundColor: isActive ? Colors.secondaryDark : Colors.secondaryLight,
           borderRadius: 12,
           padding: 12,
           marginBottom: 12,
@@ -34,7 +35,7 @@ const ExerciseCard = ({
           <View style={{ overflow: "hidden", borderRadius: 12 }}>
             <Pressable
               android_ripple={{
-                color: "#b9bbd1ff",
+                color: Colors.splash,
               }}
               style={{
                 flexDirection: "row",
@@ -49,7 +50,7 @@ const ExerciseCard = ({
               <Ionicons
                 name="reorder-three-outline"
                 size={24}
-                color="#565992"
+                color={Colors.primary}
               />
             </Pressable>
           </View>
@@ -58,7 +59,7 @@ const ExerciseCard = ({
               fontSize: 18,
               fontWeight: "bold",
               textTransform: "uppercase",
-              color: "#565992",
+              color: Colors.primary,
             }}
           >
             {exercise.name}

@@ -1,5 +1,6 @@
 import BottomSheetCustomHandle from "@/components/BottomSheetHandle";
 import Workout from "@/components/Workout";
+import Colors from "@/constants/Colors";
 import { WorkoutDetails } from "@/models/WorkoutDetails";
 import Ionicons from "@expo/vector-icons/build/Ionicons";
 import {
@@ -45,11 +46,11 @@ export default function Index() {
             >
               <Pressable
                 android_ripple={{
-                  color: "#BABCE7",
+                  color: Colors.secondaryDark,
                 }}
                 style={{
                   alignItems: "center",
-                  backgroundColor: "#565992",
+                  backgroundColor: Colors.primary,
                   padding: 16,
                 }}
                 onPress={startNewWorkout}
@@ -63,14 +64,14 @@ export default function Index() {
                 >
                   <Text
                     style={{
-                      color: "#E0E0FF",
+                      color: Colors.secondaryLight,
                       fontSize: 14,
                       fontWeight: "bold",
                     }}
                   >
                     START NEW WORKOUT
                   </Text>
-                  <Ionicons name="add" size={24} color="#E0E0FF" />
+                  <Ionicons name="add" size={24} color={Colors.secondaryLight} />
                 </View>
               </Pressable>
             </View>

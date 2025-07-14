@@ -1,3 +1,4 @@
+import Colors from "@/constants/Colors";
 import Ionicons from "@expo/vector-icons/build/Ionicons";
 import { useBottomSheet, useBottomSheetModal } from "@gorhom/bottom-sheet";
 import React, { useState } from "react";
@@ -34,7 +35,7 @@ const WorkoutHeader = () => {
             justifyContent: "space-between",
             alignItems: "center",
             width: "100%",
-            backgroundColor: "#E0E0FF",
+            backgroundColor: Colors.secondaryLight,
             paddingHorizontal: 12,
             height: 72,
           },
@@ -44,7 +45,7 @@ const WorkoutHeader = () => {
         <View style={{ overflow: "hidden", borderRadius: 12 }}>
           <Pressable
             android_ripple={{
-              color: "#b9bbd1ff",
+              color: Colors.splash,
             }}
             style={{
               flexDirection: "row",
@@ -53,13 +54,17 @@ const WorkoutHeader = () => {
               height: 48,
               paddingHorizontal: 12,
               borderRadius: 12,
-              backgroundColor: "#BABCE7",
+              backgroundColor: Colors.secondaryDark,
             }}
             onPress={() => {}}
           >
-            <Ionicons name="timer-outline" size={24} color="#565992" />
+            <Ionicons name="timer-outline" size={24} color={Colors.primary} />
             <Text
-              style={{ marginLeft: 6, color: "#565992", fontWeight: "bold" }}
+              style={{
+                marginLeft: 6,
+                color: Colors.primary,
+                fontWeight: "bold",
+              }}
             >
               01:15:03
             </Text>
@@ -74,9 +79,9 @@ const WorkoutHeader = () => {
             height: 48,
             borderRadius: 12,
             borderWidth: 1,
-            borderColor: "#BABCE7",
+            borderColor: Colors.secondaryDark,
             marginHorizontal: 12,
-            color: "#565992",
+            color: Colors.primary,
             fontWeight: "bold",
             textAlign: "center",
           }}
@@ -84,7 +89,7 @@ const WorkoutHeader = () => {
         <View style={{ overflow: "hidden", borderRadius: 12 }}>
           <Pressable
             android_ripple={{
-              color: "#b9bbd1ff",
+              color: Colors.splash,
             }}
             style={{
               flexDirection: "row",
@@ -93,11 +98,11 @@ const WorkoutHeader = () => {
               width: 48,
               height: 48,
               borderRadius: 12,
-              backgroundColor: "#BABCE7",
+              backgroundColor: Colors.secondaryDark,
             }}
             onPress={() => dismiss()}
           >
-            <Ionicons name="close" size={24} color="#565992" />
+            <Ionicons name="close" size={24} color={Colors.primary} />
           </Pressable>
         </View>
       </Animated.View>
