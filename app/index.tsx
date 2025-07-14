@@ -10,13 +10,14 @@ import {
 import { useRef, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Index() {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-
   const [activeWorkout, setActiveWorkout] = useState<WorkoutDetails | null>(
     null
   );
+  const insets = useSafeAreaInsets();
 
   const startNewWorkout = () => {
     setActiveWorkout({
@@ -35,7 +36,8 @@ export default function Index() {
               flex: 1,
               justifyContent: "flex-end",
               alignItems: "center",
-              padding: 24,
+              paddingHorizontal: 12,
+              paddingBottom: insets.bottom + 12,
             }}
           >
             <View

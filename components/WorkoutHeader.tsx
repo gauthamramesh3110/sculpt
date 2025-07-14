@@ -35,7 +35,7 @@ const WorkoutHeader = () => {
             alignItems: "center",
             width: "100%",
             backgroundColor: "#E0E0FF",
-            paddingHorizontal: 24,
+            paddingHorizontal: 12,
             height: 72,
           },
           animatedStyle,
