@@ -18,12 +18,12 @@ const EXERCISE_LIST = exerciseList.exercises;
 const Workout = ({ workoutId }: { workoutId: string }) => {
   const [exercises, setExercises] = useState<WorkoutExerciseDetails[]>([]);
 
-  const addNewExercise = (exerciseId: string, exerciseName: string) => {
+  const addNewExercise = (exerciseName: string) => {
     exerciseListModalRef.current?.close();
     setExercises((prevExercises) => [
       ...prevExercises,
       {
-        id: exerciseId,
+        id: Math.random().toString(36).substring(7),
         workoutId: workoutId,
         name: exerciseName,
         sets: [],
@@ -82,7 +82,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
             >
               <Pressable
                 onPress={() => {
-                  addNewExercise(item.id, item.name);
+                  addNewExercise(item.name);
                 }}
                 android_ripple={{ color: Colors.secondaryDark }}
               >
