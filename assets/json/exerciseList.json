@@ -1,0 +1,154 @@
+{
+  "exercises": [
+    {
+      "id": "1",
+      "name": "Push Up",
+      "primaryMuscles": ["Chest"],
+      "secondaryMuscles": ["Triceps", "Shoulders"]
+    },
+    {
+      "id": "2",
+      "name": "Squat",
+      "primaryMuscles": ["Quadriceps", "Glutes"],
+      "secondaryMuscles": ["Hamstrings", "Calves", "Core"]
+    },
+    {
+      "id": "3",
+      "name": "Lunge",
+      "primaryMuscles": ["Quadriceps", "Glutes"],
+      "secondaryMuscles": ["Hamstrings", "Calves", "Core"]
+    },
+    {
+      "id": "4",
+      "name": "Plank",
+      "primaryMuscles": ["Core"],
+      "secondaryMuscles": ["Shoulders", "Glutes"]
+    },
+    {
+      "id": "5",
+      "name": "Burpee",
+      "primaryMuscles": ["Full Body"],
+      "secondaryMuscles": ["Chest", "Quadriceps", "Shoulders", "Triceps", "Core"]
+    },
+    {
+      "id": "6",
+      "name": "Mountain Climber",
+      "primaryMuscles": ["Core"],
+      "secondaryMuscles": ["Shoulders", "Quadriceps"]
+    },
+    {
+      "id": "7",
+      "name": "Jumping Jack",
+      "primaryMuscles": ["Legs", "Shoulders"],
+      "secondaryMuscles": ["Calves", "Core"]
+    },
+    {
+      "id": "8",
+      "name": "High Knees",
+      "primaryMuscles": ["Quadriceps", "Hip Flexors"],
+      "secondaryMuscles": ["Core", "Calves"]
+    },
+    {
+      "id": "9",
+      "name": "Tricep Dip",
+      "primaryMuscles": ["Triceps"],
+      "secondaryMuscles": ["Shoulders", "Chest"]
+    },
+    {
+      "id": "10",
+      "name": "Bicycle Crunch",
+      "primaryMuscles": ["Obliques", "Rectus Abdominis"],
+      "secondaryMuscles": ["Hip Flexors"]
+    },
+    {
+      "id": "11",
+      "name": "Russian Twist",
+      "primaryMuscles": ["Obliques"],
+      "secondaryMuscles": ["Rectus Abdominis", "Hip Flexors"]
+    },
+    {
+      "id": "12",
+      "name": "Deadlift",
+      "primaryMuscles": ["Hamstrings", "Glutes", "Lower Back"],
+      "secondaryMuscles": ["Forearms", "Core"]
+    },
+    {
+      "id": "13",
+      "name": "Bench Press",
+      "primaryMuscles": ["Chest"],
+      "secondaryMuscles": ["Triceps", "Shoulders"]
+    },
+    {
+      "id": "14",
+      "name": "Shoulder Press",
+      "primaryMuscles": ["Shoulders"],
+      "secondaryMuscles": ["Triceps", "Upper Chest"]
+    },
+    {
+      "id": "15",
+      "name": "Pull Up",
+      "primaryMuscles": ["Back", "Lats"],
+      "secondaryMuscles": ["Biceps", "Forearms"]
+    },
+    {
+      "id": "16",
+      "name": "Leg Press",
+      "primaryMuscles": ["Quadriceps", "Glutes"],
+      "secondaryMuscles": ["Hamstrings", "Calves"]
+    },
+    {
+      "id": "17",
+      "name": "Bicep Curl",
+      "primaryMuscles": ["Biceps"],
+      "secondaryMuscles": ["Forearms"]
+    },
+    {
+      "id": "18",
+      "name": "Tricep Extension",
+      "primaryMuscles": ["Triceps"],
+      "secondaryMuscles": ["Shoulders"]
+    },
+    {
+      "id": "19",
+      "name": "Calf Raise",
+      "primaryMuscles": ["Calves"],
+      "secondaryMuscles": ["Ankles"]
+    },
+    {
+      "id": "20",
+      "name": "Glute Bridge",
+      "primaryMuscles": ["Glutes"],
+      "secondaryMuscles": ["Hamstrings", "Lower Back", "Core"]
+    },
+    {
+      "id": "21",
+      "name": "Side Plank",
+      "primaryMuscles": ["Obliques"],
+      "secondaryMuscles": ["Shoulders", "Glutes"]
+    },
+    {
+      "id": "22",
+      "name": "Wall Sit",
+      "primaryMuscles": ["Quadriceps"],
+      "secondaryMuscles": ["Glutes", "Hamstrings", "Calves"]
+    },
+    {
+      "id": "23",
+      "name": "Box Jump",
+      "primaryMuscles": ["Quadriceps", "Glutes", "Calves"],
+      "secondaryMuscles": ["Hamstrings", "Core"]
+    },
+    {
+      "id": "24",
+      "name": "Kettlebell Swing",
+      "primaryMuscles": ["Glutes", "Hamstrings"],
+      "secondaryMuscles": ["Lower Back", "Core", "Shoulders"]
+    },
+    {
+      "id": "25",
+      "name": "Battle Rope",
+      "primaryMuscles": ["Shoulders", "Arms"],
+      "secondaryMuscles": ["Core", "Back"]
+    }
+  ]
+}
