@@ -1,5 +1,5 @@
 import exerciseList from "@/assets/json/exerciseList.json";
-import colors from "@/constants/Colors";
+import Colors from "@/constants/Colors";
 import { WorkoutExerciseDetails } from "@/models/WorkoutDetails";
 import { Ionicons } from "@expo/vector-icons";
 import {
@@ -59,7 +59,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
           />
         )}
         handleStyle={{
-          backgroundColor: colors.background,
+          backgroundColor: Colors.background,
           borderTopLeftRadius: 12,
           borderTopRightRadius: 12,
         }}
@@ -67,7 +67,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
         <BottomSheetFlatList
           contentContainerStyle={{
             padding: 12,
-            backgroundColor: colors.background,
+            backgroundColor: Colors.background,
           }}
           keyExtractor={(item) => item.id}
           data={EXERCISE_LIST}
@@ -76,7 +76,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
               style={{
                 marginBottom: 12,
                 borderRadius: 12,
-                backgroundColor: colors.secondaryLight,
+                backgroundColor: Colors.secondaryLight,
                 overflow: "hidden",
               }}
             >
@@ -84,7 +84,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
                 onPress={() => {
                   addNewExercise(item.id, item.name);
                 }}
-                android_ripple={{ color: colors.secondaryDark }}
+                android_ripple={{ color: Colors.secondaryDark }}
               >
                 <View
                   style={{
@@ -97,7 +97,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
                     style={{
                       textTransform: "uppercase",
                       fontWeight: "bold",
-                      color: colors.primary,
+                      color: Colors.primary,
                       fontSize: 16,
                       marginBottom: 8,
                     }}
@@ -106,7 +106,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
                   </Text>
                   <Text
                     style={{
-                      color: colors.secondaryDark,
+                      color: Colors.secondaryDark,
                       fontSize: 14,
                       fontWeight: "500",
                       textTransform: "uppercase",
@@ -127,14 +127,14 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
                         style={{
                           marginRight: 8,
                           marginBottom: 4,
-                          backgroundColor: colors.secondaryDark,
+                          backgroundColor: Colors.secondaryDark,
                           padding: 4,
                           borderRadius: 4,
                         }}
                       >
                         <Text
                           style={{
-                            color: colors.primary,
+                            color: Colors.primary,
                             fontSize: 12,
                             fontWeight: "500",
                             textTransform: "uppercase",
@@ -147,7 +147,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
                   </View>
                   <Text
                     style={{
-                      color: colors.secondaryDark,
+                      color: Colors.secondaryDark,
                       fontSize: 14,
                       fontWeight: "500",
                       textTransform: "uppercase",
@@ -169,14 +169,14 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
                         style={{
                           marginRight: 8,
                           marginBottom: 4,
-                          backgroundColor: colors.secondaryDark,
+                          backgroundColor: Colors.secondaryDark,
                           padding: 4,
                           borderRadius: 4,
                         }}
                       >
                         <Text
                           style={{
-                            color: colors.primary,
+                            color: Colors.primary,
                             fontSize: 12,
                             fontWeight: "500",
                             textTransform: "uppercase",
@@ -232,7 +232,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
             >
               <Text
                 style={{
-                  color: colors.primary,
+                  color: Colors.primary,
                   fontWeight: "bold",
                   fontSize: 16,
                   marginRight: 6,
@@ -240,7 +240,7 @@ const Workout = ({ workoutId }: { workoutId: string }) => {
               >
                 ADD EXERCISE
               </Text>
-              <Ionicons name="add" size={24} color={colors.primary} />
+              <Ionicons name="add" size={24} color={Colors.primary} />
             </Pressable>
           </View>
         )}
@@ -253,6 +253,6 @@ export default Workout;
 const styles = StyleSheet.create({
   container: {
     height: "100%",
-    backgroundColor: {Colors.background,
+    backgroundColor: Colors.background,
   },
 });

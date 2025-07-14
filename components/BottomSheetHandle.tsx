@@ -1,3 +1,4 @@
+import Colors from "@/constants/Colors";
 import { BottomSheetHandle } from "@gorhom/bottom-sheet";
 import React from "react";
 import Animated, {
