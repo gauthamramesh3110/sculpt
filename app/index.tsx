@@ -7,9 +7,10 @@ import {
   BottomSheetBackdrop,
   BottomSheetModal,
   BottomSheetModalProvider,
+  BottomSheetView,
 } from "@gorhom/bottom-sheet";
 import { useRef, useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -71,7 +72,11 @@ export default function Index() {
                   >
                     START NEW WORKOUT
                   </Text>
-                  <Ionicons name="add" size={24} color={Colors.secondaryLight} />
+                  <Ionicons
+                    name="add"
+                    size={24}
+                    color={Colors.secondaryLight}
+                  />
                 </View>
               </Pressable>
             </View>
@@ -96,14 +101,23 @@ export default function Index() {
             )}
             handleComponent={(props) => <BottomSheetCustomHandle {...props} />}
           >
-            {activeWorkout != null ? (
-              <Workout workoutId={activeWorkout.id} />
-            ) : (
-              <Text>Workout not found</Text>
-            )}
+            <BottomSheetView style={styles.container}>
+              {activeWorkout != null ? (
+                <Workout workoutId={activeWorkout.id} />
+              ) : (
+                <Text>Workout not found</Text>
+              )}
+            </BottomSheetView>
           </BottomSheetModal>
         </BottomSheetModalProvider>
       </GestureHandlerRootView>
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    height: "100%",
+    backgroundColor: Colors.background,
+  },
+});

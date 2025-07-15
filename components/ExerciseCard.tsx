@@ -4,6 +4,7 @@ import Ionicons from "@expo/vector-icons/build/Ionicons";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { ScaleDecorator } from "react-native-draggable-flatlist";
+import TextButton from "./common/TextButton";
 
 const ExerciseCard = ({
   exercise,
@@ -19,7 +20,9 @@ const ExerciseCard = ({
       <View
         style={{
           width: "100%",
-          backgroundColor: isActive ? Colors.secondaryDark : Colors.secondaryLight,
+          backgroundColor: isActive
+            ? Colors.secondaryLightTransparent
+            : Colors.secondaryLight,
           borderRadius: 12,
           padding: 12,
           marginBottom: 12,
@@ -30,30 +33,28 @@ const ExerciseCard = ({
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "flex-start",
+            marginBottom: 8,
           }}
         >
-          <View style={{ overflow: "hidden", borderRadius: 12 }}>
-            <Pressable
-              android_ripple={{
-                color: Colors.splash,
-              }}
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 48,
-                height: 48,
-                borderRadius: 12,
-              }}
-              onLongPress={onLongPressGrabber}
-            >
-              <Ionicons
-                name="reorder-three-outline"
-                size={24}
-                color={Colors.primary}
-              />
-            </Pressable>
-          </View>
+          <Pressable
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 36,
+              height: 36,
+              borderRadius: 12,
+              marginRight: 12,
+            }}
+            onLongPress={onLongPressGrabber}
+          >
+            <Ionicons
+              name="reorder-three-outline"
+              size={24}
+              color={Colors.primary}
+            />
+          </Pressable>
+
           <Text
             style={{
               fontSize: 18,
@@ -62,13 +63,14 @@ const ExerciseCard = ({
               color: Colors.primary,
             }}
           >
+            {exercise.id}
             {exercise.name}
           </Text>
         </View>
-        {/* Additional exercise details can be added here */}
+        <TextButton label="ADD SET" iconName="add" onPress={() => {}} />
       </View>
     </ScaleDecorator>
   );
 };
 
-export default ExerciseCard;
+export default React.memo(ExerciseCard);
